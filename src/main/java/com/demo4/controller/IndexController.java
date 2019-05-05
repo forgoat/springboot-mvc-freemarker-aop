@@ -2,6 +2,7 @@ package com.demo4.controller;
 
 import com.demo4.entity.Admin;
 import com.demo4.entity.Alumni;
+import com.demo4.entity.InsertLog;
 import com.demo4.entity.UserLog;
 import com.demo4.service.AdminService;
 import com.demo4.service.LogService;
@@ -95,7 +96,9 @@ public class IndexController {
     @GetMapping(value = "log")
     public String getUserLog(Model model,@RequestParam("username")String username){
         List<UserLog> userLogs=logService.findAllUserLog();
+        List<InsertLog> insertLogs=logService.findAllInsertLog();
         model.addAttribute("userlog",userLogs);
+        model.addAttribute("insertlog",insertLogs);
         model.addAttribute("username",username);
         return "Alllog";
     }

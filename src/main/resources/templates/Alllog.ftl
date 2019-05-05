@@ -23,7 +23,21 @@
         </#list>
     </table>
 </div>
-
+<div>
+    <label>操作日志</label>
+    <table>
+        <tr>
+            <th>表单值</th>
+            <th>时间</th>
+        </tr>
+        <#list insertlog as ilog>
+            <tr>
+                <td>${ilog.value?if_exists}</td>
+                <td>${ilog.time?if_exists}</td>
+            </tr>
+        </#list>
+    </table>
+</div>
 <form action="/getBack" method="get">
     <input hidden name="username" id="username" value="${username}">
     <button type="submit">返回管理界面</button>

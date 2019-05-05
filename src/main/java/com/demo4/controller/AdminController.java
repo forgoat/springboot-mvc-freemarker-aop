@@ -74,7 +74,7 @@ public class AdminController {
     public List<UserLog> findAllUserLog(){
         return logService.findAllUserLog();
     }
-    
+    @GetMapping(value = "insertlog")
     public List<InsertLog> findAllInsertLog(){
         return logService.findAllInsertLog();
     }
