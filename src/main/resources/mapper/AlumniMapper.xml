@@ -12,4 +12,19 @@
     <delete id="delete" parameterType="int">
         DELETE FROM alumni WHERE id=#{id}
     </delete>
+    <update id="updateInfo">
+UPDATE alumni
+<set>
+    <if test="param2">
+        graduated_year=#{param2},
+    </if>
+    <if test="param3!=null">
+        working_area=#{param3},
+    </if>
+    <if test="param4!=null">
+        position=#{param4}
+    </if>
+</set>
+WHERE id=#{param1}
+    </update>
 </mapper>

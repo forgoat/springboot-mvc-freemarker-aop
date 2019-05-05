@@ -83,4 +83,16 @@ public class AdminService {
     public int deleteAlumni(Integer id){
         return alumniDao.delete(id);
     }
+
+    /**
+     * 动态修改校友信息
+     * @param id
+     * @param graduatedYear
+     * @param workingArea
+     * @param postion
+     * @return
+     */
+    public int updateAlumni(Integer id,String graduatedYear,String workingArea,String postion){
+        return alumniDao.updateInfo(id, graduatedYear, workingArea, postion);
+    }
 }

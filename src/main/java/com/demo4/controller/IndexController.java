@@ -100,4 +100,14 @@ public class IndexController {
         model.addAttribute("username",username);
         return "Alllog";
     }
+
+    @PutMapping(value = "updateInfo")
+    public String updateInfo(Model model,@RequestParam("username")String username,Integer id,String graduatedYear,String workingArea,String position){
+        adminService.updateAlumni(id,graduatedYear,workingArea,position);
+        model.addAttribute("username",username);
+        List<Alumni> alumniList=adminService.findAllAlumni();
+        model.addAttribute("alumnis",alumniList);
+        return "alumnis";
+    }
+
 }

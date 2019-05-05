@@ -78,4 +78,9 @@ public class AdminController {
     public List<InsertLog> findAllInsertLog(){
         return logService.findAllInsertLog();
     }
+
+    @PutMapping(value = "alumni")
+    public int updateInfo(Integer id,String graduatedYear,String workingArea,String position){
+        return adminService.updateAlumni(id, graduatedYear, workingArea, position);
+    }
 }

@@ -25,17 +25,23 @@
         </tr>
         <#list alumnis as alumni>
             <tr>
+                <form action="/updateInfo" method="post">
                 <td>${alumni.name?if_exists}</td>
                 <td>${alumni.gender?if_exists}</td>
                 <td>${alumni.birthday?if_exists}</td>
                 <td>${alumni.enrollmentYear?if_exists}</td>
-                <td>${alumni.graduatedYear?if_exists}</td>
-                <td>${alumni.workingArea?if_exists}</td>
-                <td>${alumni.position?if_exists}</td>
+                <td><input id="graduatedYear" name="graduatedYear" placeholder="${alumni.graduatedYear?if_exists}">${alumni.graduatedYear?if_exists}</td>
+                <td><input id="workingArea" name="workingArea" placeholder="${alumni.workingArea?if_exists}">${alumni.workingArea?if_exists}</td>
+                <td><input id="position" name="position" placeholder="${alumni.position?if_exists}">${alumni.position?if_exists}</td>
                 <td>${alumni.smartphone?if_exists}</td>
                 <td>${alumni.email?if_exists}</td>
                 <td>${alumni.wechat?if_exists}</td>
-                <td><form><button type="submit">修改</button></form></td>
+                <td><input hidden name="id" id="id" value="${alumni.id}">
+                    <input type="hidden" name="_method" value="put" />
+                    <input hidden name="username" id="username" value="${username}">
+                    <button type="submit" hidden>修改</button>
+                </form>
+                </td>
                 <td><form action="/deleteAlumni" method="post">
                         <input hidden name="username" id="username" value="${username}">
                         <input hidden name="id" id="id" value="${alumni.id}">
