@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.demo4.dao.AdminDao">
+    <select id="findAll" resultType="com.demo4.entity.Admin">
+        SELECT * FROM admin
+    </select>
+    <select id="findByUsername" parameterType="String" resultType="com.demo4.entity.Admin">
+        SELECT * FROM admin WHERE username=#{username}
+    </select>
+    <insert id="saveAdmin" parameterType="com.demo4.entity.Admin">
+        INSERT INTO admin(username,password) VALUE (#{username},#{password})
+    </insert>
+</mapper>

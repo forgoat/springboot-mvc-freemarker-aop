@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.demo4.dao.AlumniDao">
+    <insert id="saveAlumni" parameterType="com.demo4.entity.Alumni" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO alumni(name,gender,birthday,enrollment_year,graduated_year,working_area,position,smartphone,email,wechat) VALUES (#{name},#{gender},#{birthday},#{enrollmentYear},#{graduatedYear},#{workingArea},#{position},#{smartphone},#{email},#{wechat})
+    </insert>
+    <select id="findAll" resultType="com.demo4.entity.Alumni">
+        SELECT * FROM alumni
+    </select>
+    <delete id="delete" parameterType="int">
+        DELETE FROM alumni WHERE id=#{id}
+    </delete>
+</mapper>
