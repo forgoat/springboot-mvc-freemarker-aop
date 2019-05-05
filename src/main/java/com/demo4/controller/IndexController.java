@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.jws.soap.SOAPBinding;
 import java.util.Date;
@@ -63,22 +62,21 @@ public class IndexController {
     }
 
     @PostMapping(value = "deleteAlumni")
-    public String deleteAlumni(Model model,@RequestParam("id")Integer id){
-        if (adminService.deleteAlumni(id)==1){
-            return "redirect:alumni";
-        }
-        else {
-            return "redirect:alumni";
-        }
+    public String deleteAlumni(Model model,@RequestParam("id")Integer id,@RequestParam("username")String username){
+        adminService.deleteAlumni(id);
+        List<Alumni> alumniList=adminService.findAllAlumni();
+        model.addAttribute("alumnis",alumniList);
+        model.addAttribute("username",username);
+        return "alumni";
     }
 
     @PostMapping(value = "saveAlumni")
-    public String saveAlumni(Model model,Alumni alumni){
-        if (adminService.saveAlumni(alumni)==1){
-            model.addAttribute("alumnis",adminService.findAllAlumni());
-            return "redirect:alumni";
-        }
-        return "redirect:alumni";
+    public String saveAlumni(Model model,Alumni alumni,@RequestParam("username")String username){
+        adminService.saveAlumni(alumni);
+        List<Alumni> alumniList=adminService.findAllAlumni();
+        model.addAttribute("alumnis",alumniList);
+        model.addAttribute("username",username);
+        return "alumni";
     }
 
     @GetMapping(value = "getBack")

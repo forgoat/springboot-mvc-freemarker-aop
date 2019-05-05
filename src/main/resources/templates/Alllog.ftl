@@ -6,6 +6,7 @@
 </head>
 <body>
 <label>Welcome, ${username}</label>
+<p></p>
 <div>
     <label>用户日志</label>
     <table>
@@ -23,6 +24,7 @@
         </#list>
     </table>
 </div>
+<p></p>
 <div>
     <label>操作日志</label>
     <table>
@@ -38,6 +40,7 @@
         </#list>
     </table>
 </div>
+<p></p>
 <form action="/getBack" method="get">
     <input hidden name="username" id="username" value="${username}">
     <button type="submit">返回管理界面</button>
