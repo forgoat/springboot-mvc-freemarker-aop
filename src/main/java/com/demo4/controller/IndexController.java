@@ -55,6 +55,7 @@ public class IndexController {
         UserLog userLog=new UserLog();
         userLog.setAction("logOut");
         userLog.setUsername(username);
+        adminService.logoff(username);
         Date date=new Date();
         userLog.setTime(date.toString());
         System.out.println(userLog.toString());

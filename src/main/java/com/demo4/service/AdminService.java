@@ -95,4 +95,8 @@ public class AdminService {
     public int updateAlumni(Integer id,String graduatedYear,String workingArea,String postion){
         return alumniDao.updateInfo(id, graduatedYear, workingArea, postion);
     }
+
+    public void logoff(String username){
+
+    }
 }

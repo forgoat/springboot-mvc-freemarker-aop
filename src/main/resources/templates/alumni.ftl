@@ -20,7 +20,7 @@
             <th>手机号</th>
             <th>邮箱</th>
             <th>微信</th>
-            <th>修改</th>
+            <th hidden>修改</th>
             <th>删除</th>
         </tr>
         <#list alumnis as alumni>
@@ -30,9 +30,9 @@
                 <td>${alumni.gender?if_exists}</td>
                 <td>${alumni.birthday?if_exists}</td>
                 <td>${alumni.enrollmentYear?if_exists}</td>
-                <td><input id="graduatedYear" name="graduatedYear" placeholder="${alumni.graduatedYear?if_exists}">${alumni.graduatedYear?if_exists}</td>
-                <td><input id="workingArea" name="workingArea" placeholder="${alumni.workingArea?if_exists}">${alumni.workingArea?if_exists}</td>
-                <td><input id="position" name="position" placeholder="${alumni.position?if_exists}">${alumni.position?if_exists}</td>
+                <td><input id="graduatedYear" name="graduatedYear" placeholder="${alumni.graduatedYear?if_exists}" hidden>${alumni.graduatedYear?if_exists}</td>
+                <td><input id="workingArea" name="workingArea" placeholder="${alumni.workingArea?if_exists}" hidden>${alumni.workingArea?if_exists}</td>
+                <td><input id="position" name="position" placeholder="${alumni.position?if_exists}"hidden>${alumni.position?if_exists}</td>
                 <td>${alumni.smartphone?if_exists}</td>
                 <td>${alumni.email?if_exists}</td>
                 <td>${alumni.wechat?if_exists}</td>
