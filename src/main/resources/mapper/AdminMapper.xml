@@ -4,12 +4,12 @@
 
 <mapper namespace="com.demo4.dao.AdminDao">
     <select id="findAll" resultType="com.demo4.entity.Admin">
-        SELECT * FROM admin
+        SELECT * FROM experiment4.admin
     </select>
     <select id="findByUsername" parameterType="String" resultType="com.demo4.entity.Admin">
-        SELECT * FROM admin WHERE username=#{username}
+        SELECT * FROM experiment4.admin WHERE username=#{username}
     </select>
     <insert id="saveAdmin" parameterType="com.demo4.entity.Admin">
-        INSERT INTO admin(username,password) VALUE (#{username},#{password})
+        INSERT INTO experiment4.admin(username,password) VALUE (#{username},#{password})
     </insert>
 </mapper>

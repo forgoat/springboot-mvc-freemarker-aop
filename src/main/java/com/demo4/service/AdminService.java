@@ -34,8 +34,13 @@ public class AdminService {
      */
     public Admin login(String username,String password){
         Admin admin=adminDao.findByUsername(username);
-        if (admin.getPassword().equals(password)){
-            return admin;
+        if (admin!=null) {
+            if (admin.getPassword().equals(password)) {
+                return admin;
+            }
+            else {
+                return null;
+            }
         }
         else {
             return null;

@@ -15,6 +15,8 @@ spring:
     request-context-attribute: request
   mvc:
     static-path-pattern: /static/**
+  jmx:
+    enabled: false
 server:
   port: 8011
 mybatis:
