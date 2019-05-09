@@ -22,11 +22,9 @@ public class AdminController {
     @Autowired
     private LogService logService;
     @GetMapping(value = "")
-    public ModelAndView findAllAdmin() {
+    public List<Admin> findAllAdmin() {
         List<Admin> adminList=adminService.findAllAdmin();
-        ModelAndView modelAndView=new ModelAndView();
-        modelAndView.addObject("adminlist",adminList);
-        return modelAndView;
+        return adminList;
     }
 
     @PostMapping(value = "")
